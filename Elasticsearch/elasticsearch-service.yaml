@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: elasticsearch
+  namespace: elasticsearch-demo
+  labels:
+    application: elasticsearch
+    environement: demo
+spec:
+  selector:
+    application: elasticsearch
+    environement: demo
+  clusterIP: None
+  ports:
+    - port: 9200
+      name: api
+    - port: 9300
+      name: inter-node
