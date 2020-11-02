@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: kibana-ingress
+  namespace: elasticsearch-demo
+  annotations: 
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: ctv-tuto-k8s-kibana.secureholiday.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: kibana
+              servicePort: http

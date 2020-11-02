@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibana
+  namespace: elasticsearch-demo
+  labels:
+    application: kibana
+spec:
+  ports:
+    - port: 5601
+      name: http
+  selector:
+    application: kibana
