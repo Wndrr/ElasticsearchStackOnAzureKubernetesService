@@ -5,7 +5,12 @@ metadata:
   namespace: elasticsearch-demo
   annotations:
     kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-production
 spec:
+  tls:
+    - hosts:
+        - ctv-tuto-k8s-elasticsearch.secureholiday.com
+      secretName: ctv-tuto-k8s-elasticsearch-test-resize-cert
   rules:
     - host: ctv-tuto-k8s-elasticsearch.secureholiday.com
       http:
